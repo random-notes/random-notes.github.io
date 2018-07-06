@@ -1,0 +1,110 @@
+---
+layout: post
+title:  "Questions About Infinite Inputs"
+date:   2015-10-06
+categories: coding
+tags: leetcode k-latest-statistics
+---
+
+Given an infinite input of integers (or others), find the following things:
+
+1. The sum of the last k elements
+2. The average (mean) of the last k elements
+3. The minimum of the last k elements
+4. The maximum of the last k elements
+5. The median of the last k elements
+
+# Sum
+
+Well, there are two ways of thinking this, first is the sum of last k elements can be stored in a single primitive type. In this case, we store the last k elements and keep a cache of the ksum.
+
+```cpp
+auto it = input.begin();
+deque<int> lastK;
+long long k = 10000; // whatever window size
+long long ksum = 0;
+while(it != input.end()) {
+  if (lastK.size() <= k) {
+    lastK.push_back(*it);
+    ksum += *it;
+  } else {
+    ksum -= lastK.front();
+    lastK.pop_front();
+    lastK.push_back(*it);
+    ksum += *it;
+  }
+}
+```
+
+If the sum can not be stored, we can define a new ksum class to store the sum by combining the values. The basic idea of that class is, instead of storing the sum directly, we store m partial sums for the k elements.
+
+# Mean
+
+To calculate the mean we will use the ksum we have in previous section and divide it by k.
+
+# Minimum
+To get the minimum, we can traverse through lastK and find the minimum value, which costs `O(k)` time, if we want `O(logk)` time, we can keep a minHeap but the space cost may double if we also want `O(logk)` insertion time.
+
+Here is a findMin `O(logk)` but insert/delete `O(k)` example:
+
+```cpp
+class minHeap {
+  vector<int> heap;
+  long long size;
+
+public:
+  int push(int val) {
+    if (heap.size() < size + 1) heap.resize(size + 2, 0);
+    heap[++size] = val;
+    // do swim at heap[size]
+    return swim(size); // return final position
+  }
+
+  void pop(int val) {
+    if (size <= 0) return;
+    heap[1] = heap[size--];
+    // do sink at heap[1]
+  }
+
+  int front() const {
+    if (size > 0) return heap[1];
+    return -1; // TODO: should define error here
+  }
+
+  void remove(int pos) {
+    if (size < pos) return;
+    heap[pos] = heap[size--];
+
+    // do sink at heap[pos]
+
+  }
+
+}
+auto it = input.begin();
+deque<int> pos;
+minHeap mHeap;
+
+while(it != input.end()) {
+  if (pos.size() < k) {
+    pos.push_back(mHeap.push(*it));
+  } else {
+    mHeap.remove(pos.front());
+    pos.pop_front();
+    pos.push_back(mHeap.push(*it));
+  }
+}
+```
+
+# Maximum
+
+Maximum is similar to minimum
+
+# Median
+
+Median is the hardest one, we need to keep two heaps, one uses for the smallest $1~(k/2)$ elements, one for the other $ elements. The first heap is max heap because we want the largest number in the first part which can be the candidate of the median; the second heap is a min heap because we want the smallest number in the second part which can be the candidate of the median.
+
+The algorithm works as follows:
+
+1. if there is no valid median (at the beginning), we put the input at median
+2. if the input is larger/equal to median, insert it into right min heap, otherwise insert it into left max heap
+3. if the size difference is larger than 2, we pop the top of the heap that has the larger size, and then put median into the other heap
