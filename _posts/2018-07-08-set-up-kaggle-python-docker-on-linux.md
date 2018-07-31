@@ -27,6 +27,26 @@ According to the [offical GitHub page](https://github.com/Kaggle/docker-python),
 docker run --rm -it kaggle/python
 ```
 
+If you happen to have a permission error that looks like
+
+```
+docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock
+```
+
+Try check if your user is in the `docker` group using the `groups` command.
+
+```bash
+groups $USER                     
+dash : dash adm cdrom sudo dip plugdev lpadmin sambashare docker
+```
+If you do not see a `docker` group, run the follow command:
+
+```bash
+sudo usermod -a -G docker dash
+```
+
+and check `groups $USER` again. After this, you may need to restart your machine to take effect.
+
 # Set up command short-cuts
 
 Put the following scripts into either `~/.bashrc` or `~/.zshrc`. Fish-shell would be a littble different, but I no longer using it now :(
