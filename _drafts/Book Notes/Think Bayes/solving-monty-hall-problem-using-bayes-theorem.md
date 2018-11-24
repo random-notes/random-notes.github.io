@@ -40,7 +40,7 @@ Because conjunction is commutative, i.e. $P(A,B) = P(B,A)$, therefore
 
 $$P(A)P(B|A) = P(B)|P(A|B).$$
 
-So, finally, we can get $P(B|A) = \frac{P(B)|P(A|B)}{P(A)}$. If we use the [diachronic interpretation](https://u.osu.edu/jeon.96/personal-projects/math/bayesian-statistics-diachronic-interpretation/), then we rewrite $B$ to $H$, which denotes the _hypothesis_, and rewrite $A$ to $D$ or $E$, which denotes for either _data_ or _evidence_. Here I'll stick with $D$ because that is what [Think Bayes](https://www.amazon.com/Think-Bayes-Bayesian-Statistics-Python/dp/1449370780) uses.
+So, finally, we can get $P(B|A)=\frac{P(B)|P(A|B)}{P(A)}$. If we use the [diachronic interpretation](https://u.osu.edu/jeon.96/personal-projects/math/bayesian-statistics-diachronic-interpretation/), then we rewrite $B$ to $H$, which denotes the _hypothesis_, and rewrite $A$ to $D$ or $E$, which denotes for either _data_ or _evidence_. Here I'll stick with $D$ because that is what [Think Bayes](https://www.amazon.com/Think-Bayes-Bayesian-Statistics-Python/dp/1449370780) uses.
 
 Okay, now the equation becomes
 
@@ -72,4 +72,3 @@ Hypothesis $H_3$ is that the car is behind door $c$. Under that hypothesis, Mont
 Summing up, $P(H_1|D)$ becomes
 
 $$P(H_1|D) = \frac{P(H_1)P(D|H_1)}{D} = \frac{P(H_1)P(D|H_1)}{\sum_{i=1}^{3}P(H_i)P(D|H_i)} = \frac{\frac{1}{3}\times\frac{1}{2}}{\frac{1}{3}\times\frac{1}{2} + \frac{1}{3}\times0 + \frac{1}{3}\times1} = \frac{1}{3}.$$
-
