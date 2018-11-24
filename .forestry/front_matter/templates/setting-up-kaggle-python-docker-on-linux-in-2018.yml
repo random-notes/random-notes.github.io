@@ -1,5 +1,5 @@
 ---
-label: Default
+label: Post
 hide_body: false
 is_partial: false
 fields:
@@ -7,7 +7,7 @@ fields:
   label: Layout
   type: text
   hidden: false
-  default: ''
+  default: post
 - name: title
   label: Title
   type: text
