@@ -1,7 +1,7 @@
 ---
-label: Setting up Kaggle Python Docker on Linux in 2018
-hide_body: 
-is_partial: 
+label: Default
+hide_body: false
+is_partial: false
 fields:
 - name: layout
   label: Layout
