@@ -46,9 +46,9 @@ If we use the [diachronic interpretation](https://u.osu.edu/jeon.96/personal-pro
 
 Okay, now the equation becomes
 
-$$P(H|D) = \frac{P(H)P(D|H)}{P(D)}.$$
+$$P(H\|D) = \frac{P(H)P(D\|H)}{P(D)}.$$
 
-We can read this as the probability of hypothesis given data ($P(H|D)$, **posterior**) equals to the probability of hypothesis ($P(H)$, **piror**) multiply the probability of data given hypothesis ($P(D|H)$, **likelihood**), divided by the probability of data ($P(D)$, **normalizing constant**).
+We can read this as the probability of hypothesis given data ($P(H\|D)$, **posterior**) equals to the probability of hypothesis ($P(H)$, **piror**) multiply the probability of data given hypothesis ($P(D\|H)$, **likelihood**), divided by the probability of data ($P(D)$, **normalizing constant**).
 
 ## Apply Bayes Theorem to Monty Hall Problem
 
@@ -67,9 +67,9 @@ Now I'll explain how we get those values. First, all pirors are $\frac{1}{3}$ be
 
 Hypothesis $H_1$ is that the car is behind door $a$, which is the door we choose. In that case, Monty Hall can open door $b$ or $c$ because none of them has a car behinds it. Therefore, $P(D|H_1)$ equals to $\frac{1}{2}$, because the probability of Monty opens door $b$ is $\frac{1}{2}$ now.
 
-Hypothesis $H_2$ is that the car is behind door $b$. In that case, Monty Hall can not open door $b$ and show there is no car behind $b$. Therefore, the likelihood $P(D|H_2)$ should be zero because the _data_ simply can not exist given the hypothesis.
+Hypothesis $H_2$ is that the car is behind door $b$. In that case, Monty Hall can not open door $b$ and show there is no car behind $b$. Therefore, the likelihood $P(D\|H_2)$ should be zero because the _data_ simply can not exist given the hypothesis.
 
-Hypothesis $H_3$ is that the car is behind door $c$. Under that hypothesis, Monty has to open door $b$ because he must always open a door without a car. So, the likelihood $P(D|H_3)$ is $1$.
+Hypothesis $H_3$ is that the car is behind door $c$. Under that hypothesis, Monty has to open door $b$ because he must always open a door without a car. So, the likelihood $P(D\|H_3)$ is $1$.
 
 Summing up, $P(H_1|D)$ becomes
 
