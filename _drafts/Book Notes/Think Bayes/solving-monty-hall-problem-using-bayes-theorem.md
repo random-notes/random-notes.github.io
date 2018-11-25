@@ -40,7 +40,9 @@ Because conjunction is commutative, i.e. $P(A,B) = P(B,A)$, therefore
 
 $$P(A)P(B|A) = P(B)|P(A|B).$$
 
-So, finally, we can get $P(B|A)=$. If we use the [diachronic interpretation](https://u.osu.edu/jeon.96/personal-projects/math/bayesian-statistics-diachronic-interpretation/), then we rewrite $B$ to $H$, which denotes the _hypothesis_, and rewrite $A$ to $D$ or $E$, which denotes for either _data_ or _evidence_. Here I'll stick with $D$ because that is what [Think Bayes](https://www.amazon.com/Think-Bayes-Bayesian-Statistics-Python/dp/1449370780) uses.
+So, finally, we can get $P(B|A)=\frac{P(B)|P(A\|B)}{P(A)}$.
+
+If we use the [diachronic interpretation](https://u.osu.edu/jeon.96/personal-projects/math/bayesian-statistics-diachronic-interpretation/), then we rewrite $B$ to $H$, which denotes the _hypothesis_, and rewrite $A$ to $D$ or $E$, which denotes for either _data_ or _evidence_. Here I'll stick with $D$ because that is what [Think Bayes](https://www.amazon.com/Think-Bayes-Bayesian-Statistics-Python/dp/1449370780) uses.
 
 Okay, now the equation becomes
 
