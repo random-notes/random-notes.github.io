@@ -29,4 +29,4 @@ fields:
   hidden: false
   default: ''
 pages:
-- _posts/Book Notes/Think Bayes/solving-monty-hall-problem-using-bayes-theorem.md
+- _posts/Book Notes/Think Bayes/2018-11-24-solving-monty-hall-problem-using-bayes-theorem.md
